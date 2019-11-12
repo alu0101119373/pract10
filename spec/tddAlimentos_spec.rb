@@ -1,10 +1,12 @@
 RSpec.describe TddAlimentos do
 
   before (:all) do
-    @cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0);
-    @lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0, 185.0);
-    @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4);
-    @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0);
+    @cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
+    @lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0, 185.0)
+    @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
+    @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
+    @lentils = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
+    @milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
   end
 
   it "has a version number" do
@@ -68,6 +70,11 @@ RSpec.describe TddAlimentos do
       expect(@lambMeat.energetic_value.round(2)).to eq(225.0)
       expect(@chocolate.energetic_value.round(2)).to eq(479.2)
       expect(@cheese.energetic_value.round(2)).to eq(402.2)
+    end
+
+    it "se puede obtener el impacto ambiental diario de un hombre de 20-39 años" do
+      expect((5.09 * @chocolate.gei + @lentils.gei + 1.06 * @milk.gei).round(2)).to eq(15.5)
+      expect((5.09 * @chocolate.terrain + @lentils.terrain + 1.06 * @milk.terrain).round(2)).to eq(30.14)
     end
   end
 
