@@ -1,9 +1,9 @@
 class Alimento
   
-  attr_reader :name, :protein
+  attr_reader :name, :protein, :carbohydrates
 
-  def initialize (name, protein)
-    @name, @protein = name, protein
+  def initialize (name, protein, carbohydrates)
+    @name, @protein, @carbohydrates = name, protein, carbohydrates
   end
 
 end
