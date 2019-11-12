@@ -76,6 +76,11 @@ RSpec.describe TddAlimentos do
       expect((5.09 * @chocolate.gei + @lentils.gei + 1.06 * @milk.gei).round(2)).to eq(15.5)
       expect((5.09 * @chocolate.terrain + @lentils.terrain + 1.06 * @milk.terrain).round(2)).to eq(30.14)
     end
+
+    it "se puede obtener el impacto ambiental diario de una mujer de 20-39 años" do
+      expect((4 * @chocolate.gei + 6 * @milk.gei).round(2)).to eq(28.4)
+      expect((4 * @chocolate.terrain + 6 * @milk.terrain).round(2)).to eq(67.0)
+    end
   end
 
 end
