@@ -1,10 +1,10 @@
 RSpec.describe TddAlimentos do
 
   before (:all) do
-    @cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1);
-    @lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0);
-    @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0);
-    @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0);
+    @cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0);
+    @lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0);
+    @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3);
+    @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0);
   end
 
   it "has a version number" do
@@ -38,6 +38,13 @@ RSpec.describe TddAlimentos do
       expect(@lambMeat.lipids).to eq(17.0)
       expect(@chocolate.lipids).to eq(30.0)
       expect(@cheese.lipids).to eq(33.0)
+    end
+
+    it "existe el GEI para los alimentos" do
+      expect(@cowMeat.gei).to eq(50.0)
+      expect(@lambMeat.gei).to eq(20.0)
+      expect(@chocolate.gei).to eq(2.3)
+      expect(@cheese.gei).to eq(11.0)
     end
   end
 
