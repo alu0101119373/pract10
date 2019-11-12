@@ -1,10 +1,10 @@
 RSpec.describe TddAlimentos do
 
   before (:all) do
-    @cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0);
-    @lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0);
-    @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3);
-    @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0);
+    @cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0);
+    @lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0, 185.0);
+    @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4);
+    @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0);
   end
 
   it "has a version number" do
@@ -45,6 +45,13 @@ RSpec.describe TddAlimentos do
       expect(@lambMeat.gei).to eq(20.0)
       expect(@chocolate.gei).to eq(2.3)
       expect(@cheese.gei).to eq(11.0)
+    end
+
+    it "existe el uso de terreno por año para los alimentos" do
+      expect(@cowMeat.terrain).to eq(164.0)
+      expect(@lambMeat.terrain).to eq(185.0)
+      expect(@chocolate.terrain).to eq(3.4)
+      expect(@cheese.terrain).to eq(41.0)
     end
   end
 
