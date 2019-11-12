@@ -64,10 +64,10 @@ RSpec.describe TddAlimentos do
     end
 
     it "se puede obtener el valor calórico del alimento" do    
-      expect(@cowMeat.energetic_value).to eq(112.3)
-      expect(@lambMeat.energetic_value).to eq(225.0)
-      expect(@chocolate.energetic_value).to eq(479.2)
-      expect(@cheese.energetic_value).to eq(402.2)
+      expect(@cowMeat.energetic_value.round(2)).to eq(112.3)
+      expect(@lambMeat.energetic_value.round(2)).to eq(225.0)
+      expect(@chocolate.energetic_value.round(2)).to eq(479.2)
+      expect(@cheese.energetic_value.round(2)).to eq(402.2)
     end
   end
 

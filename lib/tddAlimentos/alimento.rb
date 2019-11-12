@@ -10,4 +10,8 @@ class Alimento
     "Nombre: #{@name}\nProteínas (g): #{@protein}\nCarbohidratos (g): #{@carbohydrates}\nLípidos (g): #{@lipids}\nGEI (kgCO2eq): #{@gei}\nTerreno (m2 año): #{@terrain}\n"
   end
 
+  def energetic_value
+    4 * @protein + 4 * @carbohydrates + 9 * @lipids
+  end
+
 end
