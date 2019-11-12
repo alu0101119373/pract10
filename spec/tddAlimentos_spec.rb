@@ -62,6 +62,13 @@ RSpec.describe TddAlimentos do
       expect(@chocolate.to_s).to eq("Nombre: Chocolate\nProteínas (g): 5.3\nCarbohidratos (g): 47.0\nLípidos (g): 30.0\nGEI (kgCO2eq): 2.3\nTerreno (m2 año): 3.4\n")
       expect(@cheese.to_s).to eq("Nombre: Queso\nProteínas (g): 25.0\nCarbohidratos (g): 1.3\nLípidos (g): 33.0\nGEI (kgCO2eq): 11.0\nTerreno (m2 año): 41.0\n")
     end
+
+    it "se puede obtener el valor calórico del alimento" do    
+      expect(@cowMeat.energetic_value).to eq(112.3)
+      expect(@lambMeat.energetic_value).to eq(225.0)
+      expect(@chocolate.energetic_value).to eq(479.2)
+      expect(@cheese.energetic_value).to eq(402.2)
+    end
   end
 
 end
