@@ -26,4 +26,17 @@ class List
         str += "]"
         str
     end
+
+    def insert (valor)
+        n = Node.new(valor, nil, nil)
+        if empty?
+            @head = n
+            @tail = n
+        else
+            n.next = @head
+            @head.prev = n
+            @head = n
+        end
+        @size += 1
+    end
 end
