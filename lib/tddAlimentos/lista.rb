@@ -39,4 +39,17 @@ class List
         end
         @size += 1
     end
+
+    def insert_tail (valor)
+        n = Node.new(valor, nil, nil)
+        if empty?
+            @head = n
+            @tail = n
+        else
+            n.prev = @tail
+            @tail.next = n
+            @tail = n
+        end
+        @size += 1
+    end
 end
