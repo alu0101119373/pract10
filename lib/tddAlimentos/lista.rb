@@ -73,4 +73,19 @@ class List
         end
         aux.value
     end
+
+    def extract_tail ()
+        aux = nil
+        if @head == @tail
+            aux = @head
+            @head = nil
+            @tail = nil
+        else
+            aux = @tail
+            @tail = @tail.prev
+            @tail.next = nil
+            aux.prev = nil
+        end
+        aux.value
+    end
 end
