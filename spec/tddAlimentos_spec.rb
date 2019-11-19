@@ -130,6 +130,13 @@ RSpec.describe TddAlimentos do
       expect(@list.to_s).to eq("[3,4,5]")
     end
 
+    it "se puede extraer el primer elemento de la lista" do
+      @list.insert_more([2,3,5,7,11])
+      value = @list.extract()
+      expect(value).to eq(2)
+      expect(@list.to_s).to eq("[3,5,7,11]")
+    end
+
   end
 
 end
