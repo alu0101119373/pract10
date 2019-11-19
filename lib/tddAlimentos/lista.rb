@@ -58,4 +58,19 @@ class List
             self.insert(value)
         end
     end
+
+    def extract ()
+        aux = nil
+        if @head == @tail
+            aux = @head
+            @head = nil
+            @tail = nil
+        else
+            aux = @head
+            @head = @head.next
+            @head.prev = nil
+            aux.next = nil
+        end
+        aux.value
+    end
 end
