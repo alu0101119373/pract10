@@ -107,6 +107,10 @@ RSpec.describe TddAlimentos do
       expect(@list.empty?).to eq(true)
     end
 
+    it "se puede imprimir la lista" do
+      expect(@list.to_s).to eq("[]")
+    end
+
   end
 
 end
