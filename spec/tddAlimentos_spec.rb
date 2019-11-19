@@ -111,6 +111,13 @@ RSpec.describe TddAlimentos do
       expect(@list.to_s).to eq("[]")
     end
 
+    it "se puede insertar un elemento en la lista" do
+      @list.insert(1)
+      @list.insert(3)
+      expect(@list.head.value).to eq(3)
+      expect(@list.tail.value).to eq(1)
+    end
+
   end
 
 end
