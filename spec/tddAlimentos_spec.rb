@@ -137,6 +137,13 @@ RSpec.describe TddAlimentos do
       expect(@list.to_s).to eq("[3,5,7,11]")
     end
 
+    it "se puede extraer el ultimo elemento de la lista" do
+      @list.insert_more([3,5,6,8,9,1])
+      value = @list.extract_tail()
+      expect(value).to eq(1)
+      expect(@list.to_s).to eq("[3,5,6,8,9]")
+    end
+
   end
 
 end
