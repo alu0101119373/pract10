@@ -20,7 +20,7 @@ class List
             str += aux.value.to_s
             aux = aux.next
             if aux != nil
-                str += ", "
+                str += ","
             end
         end
         str += "]"
@@ -51,5 +51,11 @@ class List
             @tail = n
         end
         @size += 1
+    end
+
+    def insert_more (arr)
+        arr.reverse_each  do |value|
+            self.insert(value)
+        end
     end
 end
