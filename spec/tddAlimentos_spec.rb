@@ -7,6 +7,9 @@ RSpec.describe TddAlimentos do
     @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
     @lentils = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
     @milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+
+    # Datos para las pruebas con Node y List
+    @head = Node.new(1, nil, nil)
   end
 
   it "has a version number" do
@@ -81,6 +84,15 @@ RSpec.describe TddAlimentos do
       expect((4 * @chocolate.gei + 6 * @milk.gei).round(2)).to eq(28.4)
       expect((4 * @chocolate.terrain + 6 * @milk.terrain).round(2)).to eq(67.0)
     end
+  end
+
+  context "probando la estructura Node y la clase List" do
+    it "debe existir un nodo de la lista con sus datos, su siguiente y su previo" do
+      expect(@head.value).to eq(1)
+      expect(@head.next).to eq(nil)
+      expect(@head.next).to eq(nil)
+    end
+  
   end
 
 end
