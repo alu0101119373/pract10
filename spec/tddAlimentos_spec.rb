@@ -103,6 +103,10 @@ RSpec.describe TddAlimentos do
       expect(@list.size()).to eq(0)
     end
 
+    it "se puede comprobar si la lista esta vacia" do
+      expect(@list.empty()).to eq(true)
+    end
+
   end
 
 end
