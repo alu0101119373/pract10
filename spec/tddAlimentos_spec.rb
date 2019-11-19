@@ -143,6 +143,11 @@ RSpec.describe TddAlimentos do
       expect(value).to eq(1)
       expect(@list.to_s).to eq("[3,5,6,8,9]")
     end
+    
+    it "se puede imprimir la lista al reves" do
+      @list.insert_more([1,2,3,4,5])
+      expect(@list.to_rs).to eq("[5,4,3,2,1]")
+    end
 
   end
 
