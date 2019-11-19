@@ -7,9 +7,7 @@ RSpec.describe TddAlimentos do
     @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
     @lentils = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
     @milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
-  end
 
-  before (:each) do
     # Datos para las pruebas con Node y List
     @head = Node.new(1, nil, nil)
     @tail = Node.new(4, nil, nil)
@@ -99,6 +97,10 @@ RSpec.describe TddAlimentos do
   
     it "debe existir una lista con su cabeza y su cola" do
       expect(@list.head).to eq(nil)
+    end
+
+    it "se puede obtener el tamaño de la lista" do
+      expect(@list.size()).to eq(0)
     end
 
   end
