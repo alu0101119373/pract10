@@ -8,4 +8,8 @@ class List
         @tail = nil
         @size = 0
     end
+
+    def empty?
+        @size == 0
+    end
 end
