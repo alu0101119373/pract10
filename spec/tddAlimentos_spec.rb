@@ -118,6 +118,11 @@ RSpec.describe TddAlimentos do
       expect(@list.tail.value).to eq(1)
     end
 
+    it "se puede insertar un elemento al final de la lista" do
+      @list.insert_tail(7)
+      expect(@list.tail.value).to eq(7)
+    end
+
   end
 
 end
