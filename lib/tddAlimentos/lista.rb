@@ -27,6 +27,20 @@ class List
         str
     end
 
+    def to_rs
+        str = "["
+        aux = @tail
+        while aux != nil do
+            str += aux.value.to_s
+            aux = aux.prev
+            if aux != nil
+                str += ","
+            end
+        end
+        str += "]"
+        str
+    end
+
     def insert (valor)
         n = Node.new(valor, nil, nil)
         if empty?
