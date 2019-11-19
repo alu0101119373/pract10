@@ -7,7 +7,9 @@ RSpec.describe TddAlimentos do
     @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
     @lentils = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
     @milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+  end
 
+  before (:each) do
     # Datos para las pruebas con Node y List
     @head = Node.new(1, nil, nil)
     @tail = Node.new(4, nil, nil)
@@ -121,6 +123,11 @@ RSpec.describe TddAlimentos do
     it "se puede insertar un elemento al final de la lista" do
       @list.insert_tail(7)
       expect(@list.tail.value).to eq(7)
+    end
+
+    it "se pueden insertar varios elementos en la lista" do
+      @list.insert_more([3,4,5])
+      expect(@list.to_s).to eq("[3,4,5]")
     end
 
   end
