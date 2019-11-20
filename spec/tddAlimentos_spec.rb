@@ -171,6 +171,25 @@ RSpec.describe TddAlimentos do
       expect(terrain.round(2)).to eq(203.86)
       expect(gei.round(2)).to eq(67.22)
     end
+
+    it "calcula correctamente el impacto ambiental de la dieta vasca" do
+      @list.insert_more([@chocolate, @chocolate, @lentils, @lentils, @lentils])
+      
+      # Recorremos la lista para calcular el impacto ambiental
+      terrain = 0
+      gei = 0
+      aux = @list.head
+      while aux != nil do
+        terrain += aux.value.terrain
+        gei += aux.value.gei
+
+        # Avanzamos en la lista
+        aux = aux.next
+      end
+
+      expect(terrain.round(2)).to eq(17.0)
+      expect(gei.round(2)).to eq(5.8)
+    end
   end
 
 end
