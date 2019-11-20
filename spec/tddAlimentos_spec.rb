@@ -9,6 +9,7 @@ RSpec.describe TddAlimentos do
     @lentils = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
     @milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
     @beer = Alimento.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22)
+    @tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
   end
 
   before (:each) do
@@ -209,6 +210,24 @@ RSpec.describe TddAlimentos do
       expect(terrain.round(2)).to eq(83.6)
       expect(gei.round(2)).to eq(27.9)
     end
-  end
 
+    it "calcula correctamente el impacto ambiental de la dieta vegetaliana" do
+      @list.insert_more([@chocolate, @chocolate, @lentils, @tofu, @tofu])
+      
+      # Recorremos la lista para calcular el impacto ambiental
+      terrain = 0
+      gei = 0
+      aux = @list.head
+      while aux != nil do
+        terrain += aux.value.terrain
+        gei += aux.value.gei
+
+        # Avanzamos en la lista
+        aux = aux.next
+      end
+
+      expect(terrain.round(2)).to eq(14.6)
+      expect(gei.round(2)).to eq(9.0)
+    end
+  end
 end
