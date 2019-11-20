@@ -10,6 +10,9 @@ RSpec.describe TddAlimentos do
     @milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
     @beer = Alimento.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22)
     @tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
+    @camarons = Alimento.new("Camarones", 17.6, 1.5, 0.6, 18.0, 2.0)
+    @chicken = Alimento.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
+    @nut = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
   end
 
   before (:each) do
@@ -228,6 +231,25 @@ RSpec.describe TddAlimentos do
 
       expect(terrain.round(2)).to eq(14.6)
       expect(gei.round(2)).to eq(9.0)
+    end
+
+    it "calcula correctamente el impacto ambiental de la dieta 'locura por la carne'" do
+      @list.insert_more([@chocolate, @lentils, @camarons, @cowMeat, @cowMeat, @lambMeat, @chicken, @nut])
+      
+      # Recorremos la lista para calcular el impacto ambiental
+      terrain = 0
+      gei = 0
+      aux = @list.head
+      while aux != nil do
+        terrain += aux.value.terrain
+        gei += aux.value.gei
+
+        # Avanzamos en la lista
+        aux = aux.next
+      end
+
+      expect(terrain.round(2)).to eq(536.8)
+      expect(gei.round(2)).to eq(146.7)
     end
   end
 end
