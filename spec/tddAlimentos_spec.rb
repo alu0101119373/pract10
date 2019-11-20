@@ -1,4 +1,4 @@
-RSpec.describe TddAlimentos do
+RSpec.describe Alimento do
 
   before (:all) do
     @cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
@@ -13,13 +13,6 @@ RSpec.describe TddAlimentos do
     @camarons = Alimento.new("Camarones", 17.6, 1.5, 0.6, 18.0, 2.0)
     @chicken = Alimento.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
     @nut = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
-  end
-
-  before (:each) do
-    # Datos para las pruebas con Node y List
-    @head = Node.new(1, nil, nil)
-    @tail = Node.new(4, nil, nil)
-    @list = List.new
   end
 
   it "has a version number" do
@@ -94,6 +87,31 @@ RSpec.describe TddAlimentos do
       expect((4 * @chocolate.gei + 6 * @milk.gei).round(2)).to eq(28.4)
       expect((4 * @chocolate.terrain + 6 * @milk.terrain).round(2)).to eq(67.0)
     end
+  end
+end
+
+RSpec.describe List do
+
+  before (:all) do
+    @cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
+    @lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0, 185.0)
+    @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
+    @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
+    @eggs = Alimento.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7)
+    @lentils = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
+    @milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+    @beer = Alimento.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22)
+    @tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
+    @camarons = Alimento.new("Camarones", 17.6, 1.5, 0.6, 18.0, 2.0)
+    @chicken = Alimento.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
+    @nut = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+  end
+
+  before (:each) do
+    # Datos para las pruebas con Node y List
+    @head = Node.new(1, nil, nil)
+    @tail = Node.new(4, nil, nil)
+    @list = List.new
   end
 
   context "probando la estructura Node y la clase List" do
