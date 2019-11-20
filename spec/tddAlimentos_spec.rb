@@ -5,8 +5,10 @@ RSpec.describe TddAlimentos do
     @lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0, 185.0)
     @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
     @cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
+    @eggs = Alimento.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7)
     @lentils = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
     @milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+    @beer = Alimento.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22)
   end
 
   before (:each) do
@@ -148,7 +150,27 @@ RSpec.describe TddAlimentos do
       @list.insert_more([1,2,3,4,5])
       expect(@list.to_rs).to eq("[5,4,3,2,1]")
     end
+  end
 
+  context "probando la lista con determinadas dietas de alimentos" do
+    it "calcula correctamente el impacto ambiental de la dieta española" do
+      @list.insert_more([@cowMeat, @chocolate, @lentils, @eggs, @beer, @beer, @beer, @milk, @milk, @milk])
+      
+      # Recorremos la lista para calcular el impacto ambiental
+      terrain = 0
+      gei = 0
+      aux = @list.head
+      while aux != nil do
+        terrain += aux.value.terrain
+        gei += aux.value.gei
+
+        # Avanzamos en la lista
+        aux = aux.next
+      end
+
+      expect(terrain.round(2)).to eq(203.86)
+      expect(gei.round(2)).to eq(67.22)
+    end
   end
 
 end
