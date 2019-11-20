@@ -1,5 +1,5 @@
 # Práctica 7: Diseño de una Lista Doblemente Enlazada con POO y TDD
-En esta práctica diseñaremos una una DLL mediante la metodología TDD, haciendo uso de la clase Alimento.
+En esta práctica diseñaremos una DLL mediante la metodología TDD, haciendo uso de la clase Alimento.
 
 ## Datos del creador
 * **Autor:** Himar Manuel Barquín Carrasco.
