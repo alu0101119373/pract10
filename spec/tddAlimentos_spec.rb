@@ -190,6 +190,25 @@ RSpec.describe TddAlimentos do
       expect(terrain.round(2)).to eq(17.0)
       expect(gei.round(2)).to eq(5.8)
     end
+
+    it "calcula correctamente el impacto ambiental de la dieta vegetaria" do
+      @list.insert_more([@milk, @milk, @milk, @chocolate, @eggs, @lentils, @lentils, @cheese])
+      
+      # Recorremos la lista para calcular el impacto ambiental
+      terrain = 0
+      gei = 0
+      aux = @list.head
+      while aux != nil do
+        terrain += aux.value.terrain
+        gei += aux.value.gei
+
+        # Avanzamos en la lista
+        aux = aux.next
+      end
+
+      expect(terrain.round(2)).to eq(83.6)
+      expect(gei.round(2)).to eq(27.9)
+    end
   end
 
 end
