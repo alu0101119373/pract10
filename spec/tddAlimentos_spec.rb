@@ -343,3 +343,7 @@ RSpec.describe List do
     end
   end
 end
+
+RSpec.describe Plato do
+
+end
