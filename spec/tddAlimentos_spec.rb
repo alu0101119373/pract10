@@ -315,4 +315,31 @@ RSpec.describe List do
       expect(gei.round(2)).to eq(146.7)
     end
   end
+
+  context "probando el correcto funcionamiento de los metodos enumerables" do
+    it "es capaz de usar 'collect' correctamente" do
+      @list.insert_more([1,2,3,4])
+      expect(@list.collect{ @cowMeat }).to eq([@cowMeat,@cowMeat,@cowMeat,@cowMeat])
+    end
+
+    it "es capaz de usar 'select' correctamente" do
+      @list.insert_more([1,2,5,6,9,10])
+      expect(@list.select { |num| num%2 != 0 }).to eq([1,5,9])
+    end
+
+    it "devuelve el max de los elementos" do
+      @list.insert_more([@cowMeat, @lambMeat, @chocolate])
+      expect(@list.max).to eq(@chocolate)
+    end
+
+    it "devuelve el min de los elementos" do
+      @list.insert_more([@cowMeat, @lambMeat, @chocolate])
+      expect(@list.min).to eq(@cowMeat)
+    end
+
+    it "ordena los valores de la lista" do
+      @list.insert_more([@lambMeat, @cowMeat, @chocolate, @cheese])
+      expect(@list.sort).to eq([@cowMeat, @lambMeat, @cheese, @chocolate])
+    end
+  end
 end
