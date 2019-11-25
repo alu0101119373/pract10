@@ -1,5 +1,7 @@
 class Alimento
   
+  include Comparable
+
   attr_reader :name, :protein, :carbohydrates, :lipids, :gei, :terrain
 
   def initialize (name, protein, carbohydrates, lipids, gei, terrain)
@@ -12,6 +14,10 @@ class Alimento
 
   def energetic_value
     4 * @protein + 4 * @carbohydrates + 9 * @lipids
+  end
+
+  def <=> (another)
+    self.energetic_value <=> another.energetic_value
   end
 
 end
