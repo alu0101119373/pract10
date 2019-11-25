@@ -345,5 +345,14 @@ RSpec.describe List do
 end
 
 RSpec.describe Plato do
+  context "probando los accesos a los atributos de la clase" do
+    
+    before (:each) do
+      @plato_vacio = Plato.new("Plato vacio")
+    end
 
+    it "se puede obtener el nombre de un plato" do
+      expect(@plato_vacio.name).to eq("Plato vacio")
+    end
+  end
 end
