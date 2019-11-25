@@ -1,6 +1,9 @@
 Node = Struct.new(:value, :next, :prev)
 
 class List
+
+    include Enumerable
+
     attr_reader :head, :tail, :size
 
     def initialize
@@ -101,5 +104,13 @@ class List
             aux.prev = nil
         end
         aux.value
+    end
+
+    def each
+        nodo = @head
+        while nodo != nil
+            yield nodo.value
+            nodo = nodo.next
+        end
     end
 end
