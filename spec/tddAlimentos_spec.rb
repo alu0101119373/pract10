@@ -88,6 +88,51 @@ RSpec.describe Alimento do
       expect((4 * @chocolate.terrain + 6 * @milk.terrain).round(2)).to eq(67.0)
     end
   end
+
+  context "probando la comparabilidad de los alimentos" do
+    it "se puede comprobar que un alimento es mayor que otro" do
+      expect(@chocolate > @cowMeat).to eq(true)
+      expect(@cowMeat > @lambMeat).to eq(false)
+    end
+
+    it "se puede comprobar que la eficiencia energetica de un alimento es mayor que otro" do
+      expect(@chocolate > @cowMeat).to eq(true)
+      expect(@cowMeat > @lambMeat).to eq(false)
+    end
+
+    it "se puede comprobar que la eficiencia energetica de un alimento es mayor o igual que otro" do
+      expect(@chocolate >= @cowMeat).to eq(true)
+      expect(@cowMeat >= @lambMeat).to eq(false)
+    end
+
+    it "se puede comprobar que la eficiencia energetica de un alimento es menor que otro" do
+      expect(@chocolate < @cowMeat).to eq(false)
+      expect(@cowMeat < @lambMeat).to eq(true)
+    end
+
+    it "se puede comprobar que la eficiencia energetica de un alimento es menor o igual que otro" do
+      expect(@chocolate <= @chocolate).to eq(true)
+      expect(@cowMeat < @lambMeat).to eq(true)
+    end
+
+    it "se puede comprobar que la eficiencia energetica de un alimento es igual que otro" do
+      expect(@chocolate == @chocolate).to eq(true)
+      expect(@cowMeat == @lambMeat).to eq(false)
+    end
+
+    it "se puede ordenar un array de alimentos" do
+      array = [@cowMeat, @lambMeat, @chocolate, @cheese]
+      expect(array.sort.to_s).to eq(([@cowMeat, @lambMeat, @cheese, @chocolate]).to_s)
+    end
+
+    it "se puede comprobar si la eficiencia energetica de un alimento esta entre dos valores" do
+      expect(@cheese.between?(@cowMeat, @chocolate)).to eq(true)
+    end
+
+    it "se puede usar el metodo clamp" do
+      expect(@chocolate.clamp(@cowMeat, @cheese)).to eq(@cheese)
+    end
+  end
 end
 
 RSpec.describe List do
