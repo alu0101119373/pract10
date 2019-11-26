@@ -512,5 +512,13 @@ RSpec.describe PlatoAmbiental do
       expect(@menu_vegetaliana.sort).to eq([@vl_lentils, @vl_tofu_with_chocolate])
       expect(@menu_locura_carne.sort).to eq([@c_camarons, @c_animal_lovers, @c_chicken_with_nuts, @c_lentils_with_chocolate])
     end
+
+    it "se filtran los elementos con 'select'" do
+      expect(@menu_espanola.select { |x| x.vct < 400 }).to eq([@s_cowMeat_with_egg_and_beer, @s_lentils])
+      expect(@menu_vasco.select { |x| x.vct.between?(300, 500) }).to eq([])
+      expect(@menu_vegetario.select { |x| x.vct.between?(500, 600) }).to eq([@veg_omelet_with_cheese])
+      expect(@menu_vegetaliana.select { |x| x.vct >= 1000 }).to eq([@vl_tofu_with_chocolate])
+      expect(@menu_locura_carne.select { |x| x.vct.between?(700, 800) }).to eq([@c_chicken_with_nuts, @c_lentils_with_chocolate])
+    end
   end
 end
