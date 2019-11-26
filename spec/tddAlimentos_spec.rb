@@ -520,5 +520,13 @@ RSpec.describe PlatoAmbiental do
       expect(@menu_vegetaliana.select { |x| x.vct >= 1000 }).to eq([@vl_tofu_with_chocolate])
       expect(@menu_locura_carne.select { |x| x.vct.between?(700, 800) }).to eq([@c_chicken_with_nuts, @c_lentils_with_chocolate])
     end
+
+    it "calcula el maximo de una lista de platos" do
+      expect(@menu_espanola.max).to eq(@s_chocolate_with_milk)
+      expect(@menu_vasco.max).to eq(@v_chocolate_ice_cream)
+      expect(@menu_vegetario.max).to eq(@veg_hot_chocolate_with_milk)
+      expect(@menu_vegetaliana.max).to eq(@vl_tofu_with_chocolate)
+      expect(@menu_locura_carne.max).to eq(@c_lentils_with_chocolate)
+    end
   end
 end
