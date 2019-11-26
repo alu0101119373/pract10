@@ -394,5 +394,9 @@ RSpec.describe Plato do
     it "se obtiene el porcentaje de carbohidratos" do
       expect(@chocolate_with_milk.percentage_carbohydrates.round(2)).to eq(0.39)
     end
+
+    it "se obtiene el plato formateado" do
+      expect(@chocolate_with_milk.to_s).to eq("Nombre del plato: Chocolate con leche.\nIngredientes:\n- Chocolate (200 gr)\n- Leche de Vaca (150 gr)\nKilocalorias totales: 1050.2 kcal")
+    end
   end
 end
