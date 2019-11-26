@@ -382,5 +382,9 @@ RSpec.describe Plato do
     it "se obtiene el VCT" do
       expect(@chocolate_with_milk.vct).to eq(1050.2)
     end
+
+    it "se obtiene el porcentaje de proteinas" do
+      expect(@chocolate_with_milk.percentage_proteins.round(2)).to eq(0.06)
+    end
   end
 end
