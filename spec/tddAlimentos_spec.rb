@@ -419,6 +419,41 @@ RSpec.describe PlatoAmbiental do
 
   before (:each) do
     @chocolate_with_milk = PlatoAmbiental.new("Chocolate con leche", [@chocolate, @milk], [200, 150])
+    @omelet_with_cheese = PlatoAmbiental.new("Tortilla de queso", [@eggs, @cheese], [130, 100])
+    @cowMeat_with_cheese_and_beer = PlatoAmbiental.new("Carne de vaca con queso y cerveza", [@cowMeat, @cheese, @beer], [350, 200, 500])
+
+    # Menu dieta española
+    @s_chocolate_with_milk = PlatoAmbiental.new("Chocolate con leche", [@chocolate, @milk], [100, 300])
+    @s_cowMeat_with_egg_and_beer = PlatoAmbiental.new("Ternera con huevo y cerveza", [@cowMeat, @eggs, @beer], [100, 100, 300])
+    @s_lentils = PlatoAmbiental.new("Lentejas", [@lentils], [100])
+    @menu_espanola = [@s_chocolate_with_milk, @s_cowMeat_with_egg_and_beer, @s_lentils]
+
+    # Menu dieta vasca
+    @v_lentils = PlatoAmbiental.new("Lentejas", [@lentils], [300])
+    @v_chocolate_ice_cream = PlatoAmbiental.new("Helado de chocolate", [@chocolate], [200])
+
+    @menu_vasco = [@v_lentils, @v_chocolate_ice_cream]
+
+    # Menu vegetario
+    @veg_hot_chocolate_with_milk = PlatoAmbiental.new("Chocolate con leche caliente", [@chocolate, @milk], [100, 300])
+    @veg_omelet_with_cheese = PlatoAmbiental.new("Tortilla de queso", [@eggs, @cheese], [100, 100])
+    @veg_lentils = PlatoAmbiental.new("Lentejas", [@lentils], [200])
+
+    @menu_vegetario = [@veg_hot_chocolate_with_milk, @veg_lentils, @veg_omelet_with_cheese]
+
+    # Menu vegetaliana
+    @vl_tofu_with_chocolate = PlatoAmbiental.new("Tofu con chocolate", [@tofu, @chocolate], [200, 200])
+    @vl_lentils = PlatoAmbiental.new("Lentejas", [@lentils], [100])
+
+    @menu_vegetaliana = [@vl_tofu_with_chocolate, @vl_lentils]
+
+    # Menu 'locura por la carne'
+    @c_chicken_with_nuts = PlatoAmbiental.new("Pollo con nueces", [@chicken, @nut], [100, 100])
+    @c_animal_lovers = PlatoAmbiental.new("Amante de los animales", [@lambMeat, @cowMeat], [100, 200])
+    @c_lentils_with_chocolate = PlatoAmbiental.new("Lentejas con chocolate", [@chocolate, @lentils], [100, 100])
+    @c_camarons = PlatoAmbiental.new("Camarones", [@camarons], [100])
+
+    @menu_locura_carne = [@c_animal_lovers, @c_chicken_with_nuts, @c_lentils_with_chocolate, @c_camarons]
   end
 
   context "probando los valores de GEI y terreno de la clase Plato Ambiental" do
@@ -438,6 +473,34 @@ RSpec.describe PlatoAmbiental do
       expect(@chocolate_with_milk.is_a?Plato).to eq(true)
       expect(@chocolate_with_milk.is_a?List).to eq(false)
       expect(@chocolate.is_a?Alimento).to eq(true)
+    end
+  end
+
+  context "probando la comparabilidad de los platos" do
+    it "se comprueba que un plato es 'mayor' que otro" do
+      expect(@s_chocolate_with_milk > @s_lentils).to eq(true)
+      expect(@s_cowMeat_with_egg_and_beer > @s_chocolate_with_milk).to eq(false)
+      expect(@s_lentils > @s_lentils).to eq(false)
+    end
+
+    it "se comprueba que un plato es 'mayor o igual' que otro" do
+      expect(@vl_tofu_with_chocolate >= @vl_lentils).to eq(true)
+      expect(@vl_tofu_with_chocolate >= @vl_tofu_with_chocolate).to eq(true)
+    end
+
+    it "se comprueba que un plato es 'menor' que otro" do
+      expect(@v_chocolate_ice_cream < @v_lentils).to eq(false)
+      expect(@v_lentils < @v_chocolate_ice_cream).to eq(true)
+    end
+
+    it "se comprueba que un plato es 'menor o igual' que otro" do
+      expect(@c_animal_lovers <= @c_camarons).to eq(false)
+      expect(@c_chicken_with_nuts <= @c_camarons).to eq(false)
+    end
+
+    it "se comprueba que un plato es 'igual' otro" do
+      expect(@veg_hot_chocolate_with_milk == @veg_hot_chocolate_with_milk).to eq(true)
+      expect(@veg_lentils == @veg_omelet_with_cheese).to eq(false)
     end
   end
 end
