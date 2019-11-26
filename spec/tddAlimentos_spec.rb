@@ -429,5 +429,9 @@ RSpec.describe PlatoAmbiental do
     it "se obtiene correctamente el uso de terreno de un plato" do
       expect(@chocolate_with_milk.terrain.round(2)).to eq(20.15)
     end
+
+    it "se comprueba que la clase de un objeto" do
+      expect(@chocolate_with_milk.class).to eq(PlatoAmbiental)
+    end
   end
 end
