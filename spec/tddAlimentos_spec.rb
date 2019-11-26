@@ -378,5 +378,9 @@ RSpec.describe Plato do
     it "se puede obtener un conjunto de cantidades de alimentos en gramos" do
       expect(@chocolate_with_milk.quantities.collect { |x| x }).to eq([200, 150])
     end
+
+    it "se obtiene el VCT" do
+      expect(@chocolate_with_milk.vct).to eq(1050.2)
+    end
   end
 end
