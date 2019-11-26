@@ -503,4 +503,14 @@ RSpec.describe PlatoAmbiental do
       expect(@veg_lentils == @veg_omelet_with_cheese).to eq(false)
     end
   end
+
+  context "probamos la enumeracion de las listas de platos (menus)" do
+    it "se ordenan por eficiencia energetica" do
+      expect(@menu_espanola.sort).to eq([@s_lentils, @s_cowMeat_with_egg_and_beer, @s_chocolate_with_milk])
+      expect(@menu_vasco.sort).to eq([@v_lentils, @v_chocolate_ice_cream])
+      expect(@menu_vegetario.sort).to eq([@veg_omelet_with_cheese, @veg_lentils, @veg_hot_chocolate_with_milk])
+      expect(@menu_vegetaliana.sort).to eq([@vl_lentils, @vl_tofu_with_chocolate])
+      expect(@menu_locura_carne.sort).to eq([@c_camarons, @c_animal_lovers, @c_chicken_with_nuts, @c_lentils_with_chocolate])
+    end
+  end
 end
