@@ -364,7 +364,7 @@ RSpec.describe Plato do
 
     before (:each) do
       @plato_vacio = Plato.new("Plato vacio")
-      @chocolate_with_milk = Plato.new("Chocolate con leche", [@chocolate, @milk])
+      @chocolate_with_milk = Plato.new("Chocolate con leche", [@chocolate, @milk], [200, 150])
     end
 
     it "se puede obtener el nombre de un plato" do
@@ -373,6 +373,10 @@ RSpec.describe Plato do
 
     it "se puede obtener un conjunto de alimentos" do
       expect(@chocolate_with_milk.food.collect { |x| x }).to eq([@chocolate, @milk])
+    end
+
+    it "se puede obtener un conjunto de cantidades de alimentos en gramos" do
+      expect(@chocolate_with_milk.quantities.collect { |x| x }).to eq([200, 150])
     end
   end
 end
