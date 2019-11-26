@@ -528,5 +528,13 @@ RSpec.describe PlatoAmbiental do
       expect(@menu_vegetaliana.max).to eq(@vl_tofu_with_chocolate)
       expect(@menu_locura_carne.max).to eq(@c_lentils_with_chocolate)
     end
+
+    it "calcula el minimo de una lista de platos" do
+      expect(@menu_espanola.min).to eq(@s_lentils)
+      expect(@menu_vasco.min).to eq(@v_lentils)
+      expect(@menu_vegetario.min).to eq(@veg_omelet_with_cheese)
+      expect(@menu_vegetaliana.min).to eq(@vl_lentils)
+      expect(@menu_locura_carne.min).to eq(@c_camarons)
+    end
   end
 end
