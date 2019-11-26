@@ -416,4 +416,14 @@ RSpec.describe PlatoAmbiental do
     @chicken = Alimento.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
     @nut = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
   end
+
+  before (:each) do
+    @chocolate_with_milk = PlatoAmbiental.new("Chocolate con leche", [@chocolate, @milk], [200, 150])
+  end
+
+  context "probando los valores de GEI y terreno de la clase Plato Ambiental" do
+    it "se obtiene correctamente el GEI de un plato" do
+      expect(@chocolate_with_milk.gei.round(2)).to eq(9.4)
+    end
+  end
 end
