@@ -536,5 +536,13 @@ RSpec.describe PlatoAmbiental do
       expect(@menu_vegetaliana.min).to eq(@vl_lentils)
       expect(@menu_locura_carne.min).to eq(@c_camarons)
     end
+
+    it "obtiene datos concretos con 'collect'" do
+      expect(@menu_espanola.collect { |x| x.name }).to eq(["Chocolate con leche", "Ternera con huevo y cerveza", "Lentejas"])
+      expect(@menu_vasco.collect { |x| x.vct.round(2) }).to eq([943.8, 958.4])
+      expect(@menu_vegetario.collect { |x| x.percentage_proteins.round(2) }).to eq([0.09, 0.3, 0.27])
+      expect(@menu_vegetaliana.collect { |x| x.percentage_lipids.round(2) }).to eq([0.56, 0.04])
+      expect(@menu_locura_carne.collect { |x| x.percentage_carbohydrates.round(2) }).to eq([0.0, 0.11, 0.5, 0.07])
+    end
   end
 end
