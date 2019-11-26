@@ -425,5 +425,9 @@ RSpec.describe PlatoAmbiental do
     it "se obtiene correctamente el GEI de un plato" do
       expect(@chocolate_with_milk.gei.round(2)).to eq(9.4)
     end
+
+    it "se obtiene correctamente el uso de terreno de un plato" do
+      expect(@chocolate_with_milk.terrain.round(2)).to eq(20.15)
+    end
   end
 end
