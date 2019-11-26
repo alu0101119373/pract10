@@ -1,4 +1,7 @@
 class Plato
+
+    include Comparable
+
     attr_reader :name, :food, :quantities, :vct, :percentage_proteins, :percentage_lipids, :percentage_carbohydrates
 
     def initialize (name, alimentos = [], gramos = [])
@@ -29,6 +32,7 @@ class Plato
         end
         result += "Kilocalorias totales: #{self.vct} kcal"
     end
+
     def calc_vct
         alimentos = @food.collect { |x| x.energetic_value }
         gramos = @quantities.collect { |x| x/100.0 }
@@ -71,5 +75,9 @@ class Plato
             result += (gramos[i] * alimentos[i]) * 4
         end
         result /= @vct
+    end
+
+    def <=> (another)
+        self.vct <=> another.vct
     end
 end
