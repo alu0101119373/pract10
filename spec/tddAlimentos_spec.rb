@@ -430,8 +430,14 @@ RSpec.describe PlatoAmbiental do
       expect(@chocolate_with_milk.terrain.round(2)).to eq(20.15)
     end
 
-    it "se comprueba que la clase de un objeto" do
+    it "se comprueba la clase de un objeto" do
       expect(@chocolate_with_milk.class).to eq(PlatoAmbiental)
+    end
+
+    it "se comprueba la pertenencia a una jerarquia de un objeto" do
+      expect(@chocolate_with_milk.is_a?Plato).to eq(true)
+      expect(@chocolate_with_milk.is_a?List).to eq(false)
+      expect(@chocolate.is_a?Alimento).to eq(true)
     end
   end
 end
