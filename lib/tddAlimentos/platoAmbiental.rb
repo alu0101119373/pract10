@@ -1,0 +1,2 @@
+class PlatoAmbiental
+end
