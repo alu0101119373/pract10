@@ -9,6 +9,14 @@ class PlatoAmbiental < Plato
         @terrain = calc_terrain
     end
 
+    def to_s
+        result = ""
+
+        result += super.to_s
+        result += "\nGEI: #{@gei.round(2)} kgCO2eq"
+        result += "\nTerreno: #{@terrain.round(2)} m2 / año"
+    end
+
     def calc_gei
         datos = @food.collect { |x| x.gei }
         gramos = @quantities.collect { |x| x/100.0 }
