@@ -477,6 +477,10 @@ RSpec.describe PlatoAmbiental do
       expect(@chocolate_with_milk.is_a?List).to eq(false)
       expect(@chocolate.is_a?Alimento).to eq(true)
     end
+
+    it "se puede obtener una cadena de texto" do
+      expect(@chocolate_with_milk.to_s).to eq("Nombre del plato: Chocolate con leche.\nIngredientes:\n- Chocolate (200 gr)\n- Leche de Vaca (150 gr)\nKilocalorias totales: 1050.2 kcal\nGEI: 9.4 kgCO2eq\nTerreno: 20.15 m2 / año")
+    end
   end
 
   context "probando la comparabilidad de los platos" do
