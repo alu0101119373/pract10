@@ -1,13 +1,13 @@
-# Práctica 8: POO: Herencia. Módulos
-En esta práctica haremos que la clase Alimento sea comparable. Asimismo, la clase List se convertirá en enumerable. Por otro lado, también crearemos una jerarquía de clases para la nueva clase Plato.
+# Práctica 9: POO: Programación Funcional. Funciones de orden superior.
+En esta práctica vamos a desarrollar un menú dietético que tenga en cuenta la huella nutricional de los platos y el coste de cada plato, e incremente dicho coste en proporción al plato con máxima huella nutricional. Además, documentaremos la gema utilizando RDOC.
 
 ## Metodología
-Para esta práctica haremos uso del paradigma POO y la metodología de Desarrollo Dirigido por Pruebas (TDD). Se utilizará git y GitHub para almacenar los archivos de la gema.
+Para esta práctica haremos uso del paradigma POO y la metodología de Desarrollo Dirigido por Pruebas (TDD). Se utilizará git y GitHub para almacenar los archivos de la gema, además de la herramienta RDOC para generar la documentación.
 
 ## Datos del creador
 * **Autor:** Himar Manuel Barquín Carrasco.
-* **Fecha de creación:** 25/11/2019.
-* **Fecha de entrega:** 27/11/2019.
+* **Fecha de creación:** 09/12/2019.
+* **Fecha de entrega:** 11/12/2019.
 
 
 ------------
