@@ -469,6 +469,11 @@ RSpec.describe PlatoAmbiental do
     it "se comprueba la clase de un objeto" do
       expect(@chocolate_with_milk.class).to eq(PlatoAmbiental)
     end
+
+    it "se calcula correctamente el impacto ambiental de un plato" do
+      expect(@chocolate_with_milk.nutritional_footprint).to eq(2.0)
+      expect(@omelet_with_cheese.nutritional_footprint).to eq(1.0)
+    end
   end
 
   context "probando metodos de la clase" do
