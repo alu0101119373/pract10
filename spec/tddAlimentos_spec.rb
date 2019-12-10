@@ -488,33 +488,33 @@ RSpec.describe PlatoAmbiental do
     end
   end
 
-  context "probando la comparabilidad de los platos" do
-    it "se comprueba que un plato es 'mayor' que otro" do
-      expect(@s_chocolate_with_milk > @s_lentils).to eq(true)
-      expect(@s_cowMeat_with_egg_and_beer > @s_chocolate_with_milk).to eq(false)
-      expect(@s_lentils > @s_lentils).to eq(false)
-    end
+  # context "probando la comparabilidad de los platos" do
+  #   it "se comprueba que un plato es 'mayor' que otro" do
+  #     expect(@s_chocolate_with_milk > @s_lentils).to eq(true)
+  #     expect(@s_cowMeat_with_egg_and_beer > @s_chocolate_with_milk).to eq(false)
+  #     expect(@s_lentils > @s_lentils).to eq(false)
+  #   end
 
-    it "se comprueba que un plato es 'mayor o igual' que otro" do
-      expect(@vl_tofu_with_chocolate >= @vl_lentils).to eq(true)
-      expect(@vl_tofu_with_chocolate >= @vl_tofu_with_chocolate).to eq(true)
-    end
+  #   it "se comprueba que un plato es 'mayor o igual' que otro" do
+  #     expect(@vl_tofu_with_chocolate >= @vl_lentils).to eq(true)
+  #     expect(@vl_tofu_with_chocolate >= @vl_tofu_with_chocolate).to eq(true)
+  #   end
 
-    it "se comprueba que un plato es 'menor' que otro" do
-      expect(@v_chocolate_ice_cream < @v_lentils).to eq(false)
-      expect(@v_lentils < @v_chocolate_ice_cream).to eq(true)
-    end
+  #   it "se comprueba que un plato es 'menor' que otro" do
+  #     expect(@v_chocolate_ice_cream < @v_lentils).to eq(false)
+  #     expect(@v_lentils < @v_chocolate_ice_cream).to eq(true)
+  #   end
 
-    it "se comprueba que un plato es 'menor o igual' que otro" do
-      expect(@c_animal_lovers <= @c_camarons).to eq(false)
-      expect(@c_chicken_with_nuts <= @c_camarons).to eq(false)
-    end
+  #   it "se comprueba que un plato es 'menor o igual' que otro" do
+  #     expect(@c_animal_lovers <= @c_camarons).to eq(false)
+  #     expect(@c_chicken_with_nuts <= @c_camarons).to eq(false)
+  #   end
 
-    it "se comprueba que un plato es 'igual' otro" do
-      expect(@veg_hot_chocolate_with_milk == @veg_hot_chocolate_with_milk).to eq(true)
-      expect(@veg_lentils == @veg_omelet_with_cheese).to eq(false)
-    end
-  end
+  #   it "se comprueba que un plato es 'igual' otro" do
+  #     expect(@veg_hot_chocolate_with_milk == @veg_hot_chocolate_with_milk).to eq(true)
+  #     expect(@veg_lentils == @veg_omelet_with_cheese).to eq(false)
+  #   end
+  # end
 
   context "probamos la enumeracion de las listas de platos (menus)" do
     it "se ordenan por eficiencia energetica" do
