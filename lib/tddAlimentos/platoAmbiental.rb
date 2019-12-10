@@ -61,4 +61,8 @@ class PlatoAmbiental < Plato
         result
     end
 
+    def <=> (another)
+        self.nutritional_footprint <=> another.nutritional_footprint
+    end
+
 end
