@@ -447,6 +447,8 @@ RSpec.describe PlatoAmbiental do
     @vl_lentils = PlatoAmbiental.new("Lentejas", [@lentils], [100])
 
     @menu_vegetaliana = [@vl_tofu_with_chocolate, @vl_lentils]
+     # Precios para el menu 'locura carne'
+     @precios_vegetaliana = [2.5, 3.25]
 
     # Menu 'locura por la carne'
     @c_chicken_with_nuts = PlatoAmbiental.new("Pollo con nueces", [@chicken, @nut], [100, 100])
@@ -455,6 +457,8 @@ RSpec.describe PlatoAmbiental do
     @c_camarons = PlatoAmbiental.new("Camarones", [@camarons], [100])
 
     @menu_locura_carne = [@c_animal_lovers, @c_chicken_with_nuts, @c_lentils_with_chocolate, @c_camarons]
+    # Precios para el menu 'locura carne'
+    @precios_locura_carne = [5.0, 4.5, 3.25, 2.0]
   end
 
   context "probando los valores de GEI y terreno de la clase Plato Ambiental" do
@@ -562,6 +566,32 @@ RSpec.describe PlatoAmbiental do
     it "se obtiene el plato con maxima huella nutricional" do
       expect(@menu_vegetaliana.max).to eq(@vl_tofu_with_chocolate)
       expect(@menu_locura_carne.max).to eq(@c_chicken_with_nuts)
+    end
+
+    it "se incrementan los platos en proporcion al plato con maxima huella nutricional" do
+      # Calculamos la proporcion en base a 1 - huella_actual/huella_maxima
+      # Incrementamos el precio en dicha proporcion, es decir, en 1 + (1 - huella_actual/huella_maxima)
+
+      # Para el menu 'locura de la carne'
+      # Obtenemos la huella nutricional del plato con maxima huella nutricional
+      maximo_valor = @menu_locura_carne.max.nutritional_footprint
+      huellas_nutricionales = @menu_locura_carne.collect { |x| x.nutritional_footprint/maximo_valor }
+      @precios_locura_carne = @precios_locura_carne.collect do |x|
+        aux = (x * (2.0 - huellas_nutricionales[0])).round(2)
+        huellas_nutricionales.delete_at(0)
+        aux
+      end
+      expect(@precios_locura_carne).to eq([6.67, 4.5, 3.25, 2.67])
+
+      # Para el menu
+      maximo_valor = @menu_vegetaliana.max.nutritional_footprint
+      huellas_nutricionales = @menu_vegetaliana.collect { |x| x.nutritional_footprint/maximo_valor }
+      @precios_vegetaliana = @precios_vegetaliana.collect do |x|
+        aux = (x * (2.0 - huellas_nutricionales[0])).round(2)
+        huellas_nutricionales.delete_at(0)
+        aux
+      end
+      expect(@precios_vegetaliana).to eq([2.5, 4.88])
     end
   end
 end
