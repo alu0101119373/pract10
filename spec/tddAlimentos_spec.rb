@@ -557,4 +557,11 @@ RSpec.describe PlatoAmbiental do
       expect(@menu_locura_carne.collect { |x| x.percentage_carbohydrates.round(2) }).to eq([0.0, 0.11, 0.5, 0.07])
     end
   end
+
+  context "comparaciones con la huella nutricional" do
+    it "se obtiene el plato con maxima huella nutricional" do
+      expect(@menu_vegetaliana.max).to eq(@vl_tofu_with_chocolate)
+      expect(@menu_locura_carne.max).to eq(@c_chicken_with_nuts)
+    end
+  end
 end
