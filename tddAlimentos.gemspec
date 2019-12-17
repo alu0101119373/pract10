@@ -32,4 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "guard-bundler"
+  spec.add_development_dependency "markup"
+  spec.add_development_dependency "rdoc"
 end
