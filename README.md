@@ -9,7 +9,7 @@ Para esta práctica haremos uso del paradigma POO y la metodología de Desarroll
 ## Datos del creador
 * **Autor:** Himar Manuel Barquín Carrasco.
 * **Fecha de creación:** 09/12/2019.
-* **Fecha de entrega:** 11/12/2019.
+* **Fecha de entrega:** 18/12/2019.
 
 
 ------------
