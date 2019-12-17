@@ -3,6 +3,12 @@ En esta práctica vamos a desarrollar un menú dietético que tenga en cuenta la
 
 La documentación se puede encontrar en la siguiente página web: https://xavyan.github.io/lpp-web/
 
+## Instalación
+
+En la carpeta del proyecto, ejecutar:
+
+`bundle install`
+
 ## Metodología
 Para esta práctica haremos uso del paradigma POO y la metodología de Desarrollo Dirigido por Pruebas (TDD). Se utilizará git y GitHub para almacenar los archivos de la gema, además de la herramienta RDOC para generar la documentación.
 
