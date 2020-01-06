@@ -12,7 +12,7 @@ Para el desarrollo de esta práctica, crearemos una clase Menú y modificaremos 
 
 ```ruby
 plato = Plato.new ("Hamburguesa") do
-	nombre	"Hamburguesa especial de la casa"
+	nombre		"Hamburguesa especial de la casa"
 	alimento	:descripcion => "carne de vaca",
 			:gramos => 100
 	alimento	:descripcion => "huevo",
@@ -20,7 +20,7 @@ plato = Plato.new ("Hamburguesa") do
 end
 
 menu = Menu.new ("Combinado nº. 1") do
-	descripcion "hamburguesa, papas, refresco"
+	descripcion 	"hamburguesa, papas, refresco"
 	componente	:descripcion => "Hamburguesa especial de la casa",
 			:precio => 4.25
 	componente	:descripcion => "Papas pequeñas",
