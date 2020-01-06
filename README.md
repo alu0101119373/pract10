@@ -1,7 +1,5 @@
-# Práctica 9: POO: Programación Funcional. Funciones de orden superior.
-En esta práctica vamos a desarrollar un menú dietético que tenga en cuenta la huella nutricional de los platos y el coste de cada plato, e incremente dicho coste en proporción al plato con máxima huella nutricional. Además, documentaremos la gema utilizando RDOC.
-
-La documentación se puede encontrar en la siguiente página web: https://xavyan.github.io/lpp-web/
+# Práctica 10: Lenguajes de Dominio Específico (DSL - Domain Specific Languages)
+En esta práctica vamos a diseñar e implementar una DSL que nos permita una mejor definición de menús dietéticos diarios y semanales.
 
 ## Instalación
 
@@ -10,12 +8,33 @@ En la carpeta del proyecto, ejecutar:
 `bundle install`
 
 ## Metodología
-Para esta práctica haremos uso del paradigma POO y la metodología de Desarrollo Dirigido por Pruebas (TDD). Se utilizará git y GitHub para almacenar los archivos de la gema, además de la herramienta RDOC para generar la documentación.
+Para el desarrollo de esta práctica, crearemos una clase Menú y modificaremos las clases Alimento y Plato para que permitan el uso de una DSL. De esta manera, crear un menú será tan sencillo como hacer lo siguiente:
+
+```ruby
+plato = Plato.new ("Hamburguesa") do
+	nombre	"Hamburguesa especial de la casa"
+	alimento	:descripcion => "carne de vaca",
+			:gramos => 100
+	alimento	:descripcion => "huevo",
+			:gramos => 20
+end
+
+menu = Menu.new ("Combinado nº. 1") do
+	descripcion "hamburguesa, papas, refresco"
+	componente	:descripcion => "Hamburguesa especial de la casa",
+			:precio => 4.25
+	componente	:descripcion => "Papas pequeñas",
+			:precio => 1.75
+	componente	:descripcion => "Refresco de lata",
+			:precio => 1.5
+	precio		7.5
+end
+```
 
 ## Datos del creador
 * **Autor:** Himar Manuel Barquín Carrasco.
-* **Fecha de creación:** 09/12/2019.
-* **Fecha de entrega:** 18/12/2019.
+* **Fecha de creación:** 06/01/2020.
+* **Fecha de entrega:** 08/01/2020.
 
 
 ------------
