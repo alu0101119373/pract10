@@ -1,3 +1,5 @@
+require 'pry'
+
 RSpec.describe Alimento do
 
   before (:all) do
@@ -416,6 +418,7 @@ RSpec.describe PlatoAmbiental do
     @camarons = Alimento.new("Camarones", 17.6, 1.5, 0.6, 18.0, 2.0)
     @chicken = Alimento.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
     @nut = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+    @coffee = Alimento.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3)
   end
 
   before (:each) do
@@ -592,6 +595,42 @@ RSpec.describe PlatoAmbiental do
         aux
       end
       expect(@precios_vegetaliana).to eq([2.5, 4.88])
+    end
+  end
+end
+
+RSpec.describe PlatoDSL do
+
+  context "probando diseño DSL de los platos" do
+    it "se puede instanciar un plato con el diseño DSL" do
+      # Alimentos que vamos a utilizar para esta prueba
+      cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
+      cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
+      eggs = Alimento.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7)
+      coffee = Alimento.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3)
+      milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+
+      hamburguesa = PlatoDSL.new("Hamburguesa") do
+        descripcion   "Hamburguesa especial de la casa"
+        alimento :valor  =>  cowMeat,
+                 :gramos =>  100
+        alimento :valor  =>  cheese,
+                 :gramos =>  100
+        alimento :valor  =>  eggs,
+                 :gramos =>  20
+      end
+
+      cafe_con_leche = PlatoDSL.new("Cafe con leche") do
+        descripcion   "Cafe con leche de vaca"
+        alimento      :valor  =>   coffee,
+                      :gramos =>   50
+        alimento      :valor  =>   milk,
+                      :gramos =>   100
+      end
+
+
+      expect(hamburguesa.to_s).to eq("Hamburguesa\nHamburguesa especial de la casa\nIngredientes: Carne de Vaca (100 gr.), Queso (100 gr.), Huevos (20 gr.)\nValor calorico total: 545.58 kcal.\nUso de terreno: 206.14\nGEI: 61.84")
+      expect(cafe_con_leche.to_s).to eq("Cafe con leche\nCafe con leche de vaca\nIngredientes: Cafe (50 gr.), Leche de Vaca (100 gr.)\nValor calorico total: 61.4 kcal.\nUso de terreno: 9.05\nGEI: 3.4")
     end
   end
 end
