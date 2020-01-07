@@ -1,6 +1,3 @@
-require 'pry'
-require "./lib/tddAlimentos/alimento.rb"
-
 class PlatoDSL
 
     attr_accessor :name, :description, :food, :gr, :vct, :gei, :terrain
@@ -95,27 +92,3 @@ class PlatoDSL
     end
 
 end
-
-# cowMeat = Alimento.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
-# lambMeat = Alimento.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0, 185.0)
-# chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
-# cheese = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
-# eggs = Alimento.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7)
-# lentils = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
-# milk = Alimento.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
-# beer = Alimento.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22)
-# tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
-# camarons = Alimento.new("Camarones", 17.6, 1.5, 0.6, 18.0, 2.0)
-# chicken = Alimento.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
-# nut = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
-# coffee = Alimento.new("Cafe", 0.1, 0.0, 0.0, 0.4, 0.3)
-
-# hamburguesa = PlatoDSL.new("Hamburguesa") do
-#     descripcion   "Hamburguesa especial de la casa"
-#     alimento      :datos  =>  cowMeat,
-#                   :gramos =>  100
-#     alimento      :datos  =>  cheese,
-#                   :gramos =>  100
-#     alimento      :datos  =>  eggs,
-#                   :gramos =>  20
-#   end
