@@ -3,6 +3,7 @@ require "tddAlimentos/alimento"
 require "tddAlimentos/lista.rb"
 require "tddAlimentos/plato.rb"
 require "tddAlimentos/platoAmbiental.rb"
+require "tddAlimentos/platoDSL.rb"
 
 module TddAlimentos
   class Error < StandardError; end
