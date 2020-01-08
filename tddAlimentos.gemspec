@@ -35,5 +35,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "markup"
   spec.add_development_dependency "rdoc"
 
-  gem 'coveralls', require: false
 end
