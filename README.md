@@ -1,6 +1,8 @@
 # Práctica 10: Lenguajes de Dominio Específico (DSL - Domain Specific Languages)
 En esta práctica vamos a diseñar e implementar una DSL que nos permita una mejor definición de menús dietéticos diarios y semanales.
 
+[![Coverage Status](https://coveralls.io/repos/github/alu0101119373/pract10/badge.svg?branch=master)](https://coveralls.io/github/alu0101119373/pract10?branch=master)
+
 ## Instalación
 
 En la carpeta del proyecto, ejecutar:
